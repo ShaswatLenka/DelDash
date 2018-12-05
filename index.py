@@ -11,7 +11,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import GLA,DVA
+from apps import GLA,DVA,NTC,NEO,ALD,OVP
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
