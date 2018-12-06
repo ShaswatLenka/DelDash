@@ -30,6 +30,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
         }
         )
         ],className='row'),
+#second row
          html.Div([
                 html.Div([
                 dcc.Link('General & Labor', href='/apps/GLA'),        
@@ -39,10 +40,10 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
                 dcc.Link('Delivery & Vitals', href='/apps/DVA'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('NTSV-C Section', href='/apps/NTC'),        
+                dcc.Link('Timeline', href='/apps/TIM'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('Neonatal', href='/apps/NEO'),        
+                dcc.Link('NTSV-C Section', href='/apps/NTC'),        
                         ],className = 'two columns'),
                 html.Div([
                 dcc.Link('All Deliveries', href='/apps/ALD'),        
@@ -51,6 +52,8 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
                 dcc.Link('Overall Performance', href='/apps/OVP'),        
                         ],className = 'two columns'),
                 ],className = 'row'),
+#third row
+        
 
 #layout-close
 ])
