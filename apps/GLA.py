@@ -205,7 +205,7 @@ def update_output(value):
                         paper_bgcolor = colors['background'],
                             font = dict(
                             color = colors['text']
-                            ),
+                            )
                         )
                     ),
                         style={'height':260}
