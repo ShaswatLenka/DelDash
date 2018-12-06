@@ -39,10 +39,10 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
                 dcc.Link('Delivery & Vitals', href='/apps/DVA'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('NTSV-C Section', href='/apps/NTC'),        
+                dcc.Link('Timeline', href='/apps/TIM'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('Neonatal', href='/apps/NEO'),        
+                dcc.Link('NTSV-C Section', href='/apps/NTC'),        
                         ],className = 'two columns'),
                 html.Div([
                 dcc.Link('All Deliveries', href='/apps/ALD'),        

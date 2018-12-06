@@ -11,7 +11,10 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import GLA,DVA,NTC,NEO,ALD,OVP
+
+
+from apps import GLA,DVA,NTC,TIM,ALD,OVP
+
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -28,12 +31,12 @@ def display_page(pathname):
          return DVA.layout
     elif pathname == '/apps/NTC':
          return NTC.layout
-    elif pathname == '/apps/NEO':
-         return NEO.layout
+    elif pathname == '/apps/TIM':
+         return TIM.layout
     elif pathname == '/apps/ALD':
          return ALD.layout
     elif pathname == '/apps/OVP':
-         return DVA.layout
+         return OVP.layout
     else:
         return '404'
 
