@@ -1,5 +1,4 @@
 import base64
-import datetime
 import io
 
 import plotly.graph_objs as go
@@ -22,7 +21,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
 #first row
     html.Div([
         html.H2(
-        children='iDelDash',
+        children='DelDash',
         style={
             'textAlign': 'center',
             'color': colors['text']
@@ -30,7 +29,10 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
         )
         ],className='row'),
 #second row
-         html.Div([
+              html.Div([
+                html.Div([
+                        
+                        ],className='one columns'),
                 html.Div([
                 dcc.Link('General & Labor', href='/apps/GLA'),        
                         ],className = 'two columns'),
@@ -45,12 +47,13 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
                 dcc.Link('NTSV-C Section', href='/apps/NTC'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('All Deliveries', href='/apps/ALD'),        
+                dcc.Link('Performance Metrics', href='/apps/OVP'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('Overall Performance', href='/apps/OVP'),        
-                        ],className = 'two columns'),
-                ],className = 'row'), html.Br(),
+                        
+                        ],className='one columns'),
+                ],className = 'row')
+                , html.Br(),
 #third row
     html.Div([
             html.Div([

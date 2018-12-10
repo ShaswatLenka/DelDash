@@ -1,10 +1,6 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Dec  5 23:01:44 2018
-
-@author: jarvis
-"""
+#NTSV C-Sections
+import dash_table
+import pandas as pd
 
 import plotly.graph_objs as go
 from dash.dependencies import Input,State,Event,Output
@@ -13,6 +9,8 @@ import dash_html_components as html
 from datetime import datetime as dt
 
 from app import app
+
+df = pd.read_csv('apps/test/test-dataset/EMR.csv')
 
 colors = {
     'background': '#111111',
@@ -23,7 +21,7 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
 #first row
     html.Div([
         html.H2(
-        children='iDelDash',
+        children='DelDash',
         style={
             'textAlign': 'center',
             'color': colors['text']
@@ -31,7 +29,10 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
         )
         ],className='row'),
 #second row
-         html.Div([
+                 html.Div([
+                html.Div([
+                        
+                        ],className='one columns'),
                 html.Div([
                 dcc.Link('General & Labor', href='/apps/GLA'),        
                         ],className = 'two columns'),
@@ -46,14 +47,52 @@ layout = html.Div(style={'backgroundColor': colors['background']}, children=[
                 dcc.Link('NTSV-C Section', href='/apps/NTC'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('All Deliveries', href='/apps/ALD'),        
+                dcc.Link('Performance Metrics', href='/apps/OVP'),        
                         ],className = 'two columns'),
                 html.Div([
-                dcc.Link('Overall Performance', href='/apps/OVP'),        
-                        ],className = 'two columns'),
+                        
+                        ],className='one columns'),
                 ],className = 'row'),
+                html.Br(),
 #third row
+    html.Div([
+            
+            html.Div([
+                    
+                    ],className='one columns'),
+
+            html.Div([
+                    dcc.Upload(
+                        id='datatable-upload-NTSV',
+                        children=html.Div([
+                                'Drag and Drop or ',
+                                html.A('Select Files')
+                                ]),
+            style={
+            'width': '100%', 'height': '60px', 'lineHeight': '60px',
+            'borderWidth': '1px', 'borderStyle': 'dashed',
+            'borderRadius': '5px', 'textAlign': 'center', 'margin': '10px','color':colors['text']
+                    },
+                )
+                    ],className = 'eleven columns')
+            
+            ],className='row'),html.Br(),
+#fourth row
+    html.Div([
+            
+            dash_table.DataTable(
+            id='table',
+            columns=[{"name": i, "id": i} for i in df.columns],
+            data=df.to_dict("rows"),
+            style_header={'backgroundColor': 'rgb(30, 30, 30)'},
+            style_cell={
+                'backgroundColor': 'rgb(50, 50, 50)',
+                'color': 'white'
+            },
+            ) 
+            ],className='row'),html.Br(),html.Br(),html.Br(),html.Br(),html.Br(),html.Br()
+                      
         
 
 #layout-close
-])
+ ])
