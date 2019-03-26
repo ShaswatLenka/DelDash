@@ -8,6 +8,7 @@ DelDash during its ideation and initial development  phase(in the GE Healthcare 
 4. Comparative analysis of vital parameter trends between two subjects.
 5. Timeline: Provides a timeline of the change in trends of vitals over the days.[enhancement needed]
 6. NTSV-C sections: keeps a record of the performance of the institute based on the NTSV-C sections.[enhancement needed]
+7. Prediction of neonatal health conditions from vital parameters of the mother recorded over months 
 
 NOTE: last page is a dummy page for an additional feature to be added which is under research.
 
@@ -39,6 +40,8 @@ We assume you have python 3.0+ installed. <br>
   * run `pip install requirements.txt`<br>
   NOTE: **activate** your virtual environment before this so that it gets installed in that environment.
   * run `python3 index.py` and DelDash will run in your browser locally.
+
+#### Images 
 
 ![labor](https://github.com/ShaswatLenka/DelDash/blob/master/images/1.png)
 ![vitals](https://github.com/ShaswatLenka/DelDash/blob/master/images/2.png)
