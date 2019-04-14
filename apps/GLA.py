@@ -9,7 +9,7 @@ A medical dashboard for accessing and visualizing the antenatal parameters and r
 Corticosteroid administration in case of preterm labor
 """
 import plotly.graph_objs as go
-from dash.dependencies import Input,State,Event,Output
+from dash.dependencies import Input,State,Output
 import dash_core_components as dcc
 import dash_html_components as html
 from datetime import datetime as dt
@@ -194,11 +194,11 @@ html.Br(),
 
 ])           
 #callback for symptoms multiselect
-@app.callback(Output('pieOut', 'children'),[],[State('pieIn', 'value')],[Event('sympSubmit', 'click')])
+@app.callback(Output('pieOut', 'children'),[Input('sympSubmit', 'n_clicks')],[State('pieIn', 'value')]) #[Event('sympSubmit', 'click')])
 
-def update_output(value):
-    labels = ['True labor','False Labor']
-    values = [sum(value),4-sum(value)]
+def update_output(n_clicks, value):
+    labels = ['True labor', 'False Labor']
+    values = [sum(value), 4.0 - sum(value)]
     return dcc.Graph(
             figure = go.Figure(
                     data = [
@@ -217,12 +217,12 @@ def update_output(value):
             )
 
 
-@app.callback(Output('laborFreqOut', 'children'), [], [State('laborFreq', 'value')], [Event('timeSubmit', 'click')])
+@app.callback(Output('laborFreqOut', 'children'), [Input("timeSubmit", 'n_clicks')], [State('laborFreq', 'value')]) #[Event('timeSubmit', 'click')])
 
 
-def update_time_out(input_value):
+def update_time_out(n_clicks, input_value):
     #x = np.linspace(0,24,25)
-    x = input_value.split()
+    x = str(input_value).split()
     return dcc.Graph(
         id='Labor Chart',
         style = {
@@ -253,15 +253,14 @@ def update_time_out(input_value):
             }
         }
     )
-@app.callback(Output('laborSpectroOut', 'children'),[], [State('laborFreq', 'value')], [Event('freqSubmit', 'click')])
+@app.callback(Output('laborSpectroOut', 'children'),[Input('freqSubmit', 'n_clicks')], [State('laborFreq', 'value')]) # [Event('freqSubmit', 'click')])
 
-def update_frequency_out(input_value):
+def update_frequency_out(n_clicks, input_value):
     y = []
     x = []
     ctr=0
     n = input_value.split()
     n = [ float(y) for y in n ]
-    print(n)
     for i in range(len(n)-1):
         if(n[i+1]-n[i] < 1):
             ctr = ctr+1
